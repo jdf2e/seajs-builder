@@ -1,0 +1,29 @@
+{
+  "name": "seajs-builder",
+  "version": "1.0.0",
+  "description": "seajs模块在写的时候一般不写id和deps，但是引用的时候，这些模块发布到了cdn上，因此需要给模块加上cdn",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "mocha test/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jdf2e/seajs-builder.git"
+  },
+  "author": "jiadi0801",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jdf2e/seajs-builder/issues"
+  },
+  "homepage": "https://github.com/jdf2e/seajs-builder#readme",
+  "dependencies": {
+    "acorn": "^5.3.0",
+    "escodegen": "^1.9.0",
+    "jdf-log": "0.0.4",
+    "lodash.clonedeep": "^4.5.0"
+  },
+  "devDependencies": {
+    "expect.js": "^0.3.1",
+    "mocha": "^4.1.0"
+  }
+}
