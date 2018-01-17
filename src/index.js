@@ -17,7 +17,7 @@ const logger = require('jdf-log');
 
 const seajsReplace = require('./seajsReplace');
 
-const urlReplace = module.exports = {};
+const urlReplace = {};
 
 /**
  * 给js代码中的路径做处理，处理方式由callback决定
@@ -98,3 +98,11 @@ urlReplace.visitors = {
         seajsReplace.collectDefine(node);
     }
 };
+
+module.exports = {
+    getHandler: function (callback) {
+        return function (code, options) {
+            return urlReplace.main(code, options, callback);
+        }
+    }
+}

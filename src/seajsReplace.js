@@ -31,7 +31,6 @@ replace.handleDefine = function (callback) {
             if (!dependStr) {
                 continue;
             }
-
             let handledObj = callback({str: dependStr, name: defineNode.name, loadType: element.loadType});
 
             defineNode.name = handledObj.name || '';

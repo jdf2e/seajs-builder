@@ -1,37 +1,27 @@
 'use strict';
 const expect = require('expect.js');
 
-let html = ``;
+const urlReplace = require('../src/index');
 
-describe('测试buildWidget', function () {
-//     describe('查找并解析{%widget %}标签', function () {
-//         it('共有5个widget', function () {
-//             expect(widgetList.length).to.eql(5);
-//         });
-//         it('widget写在单行', function () {
-//             expect(widgetList[0].name).to.equal('nav');
-//             expect(widgetList[2].name).to.equal('slide');
-//             expect(widgetList[3].name).to.equal('slide');
-//             expect(widgetList[4].name).to.equal('slide');
-//         });
-//         it('widget属性分多行写', function () {
-//             expect(widgetList[1].name).to.equal('menu');
-//             expect(JSON.parse(widgetList[1].data).portal_floor_id).to.equal(0);
-//             expect(widgetList[1].text).to.equal(`{%widget   data='{"portal_floor_id": 0}'
-// floorname="运营商-菜单"
-// name="menu"
-// cmsdata='{"floorclass": "floor-201707311537"}'%}`);
-//         });
-//         it('widget相关文件名的正则检测', function () {
-//             let widgetInfo = {
-//                 name: 'test.a'
-//             }
-//             let oBasename = 'test.a.a.js';
-//             let oBasename1 = 'test.a.js';
-//             let widgetNameReg = new RegExp(escapeStringRegexp(widgetInfo.name) + '\.\\w+$');
-//             expect(widgetNameReg.test(oBasename)).to.equal(false);
-//             expect(widgetNameReg.test(oBasename1)).to.equal(true);
-//         });
-//     });
+let code = `define(function(require, exports, module) {
+    var a = require('./a');
+    var b = require('./b');
+});`;
 
+let cdnHandler = urlReplace.getHandler(function (nodeObj) {
+    nodeObj.name = 'ab';
+    nodeObj.str ='http://www.jd.com' + nodeObj.str;
+    return nodeObj;
+});
+
+let aa = cdnHandler(code);
+console.log(aa)
+return;
+describe('define路径替换', function () {
+    let cdn = "//www.jd.com";
+    describe('define只存在factory', function () {
+        it('require个数为0', function () {
+            expect(1).to.equal(1);
+        });
+    });
 });
